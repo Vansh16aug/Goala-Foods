@@ -22,7 +22,7 @@ export default function RegisterComponent() {
     dispatch(registerStart());
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://goala-foods-backend-1.onrender.com/api/auth/register",
         { username, email, password },
         {
           withCredentials: true,

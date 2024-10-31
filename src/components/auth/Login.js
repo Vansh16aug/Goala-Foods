@@ -22,7 +22,7 @@ export default function LoginComponent() {
     dispatch(loginStart());
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://goala-foods-backend-1.onrender.com/api/auth/login",
         { email, password },
         {
           withCredentials: true,

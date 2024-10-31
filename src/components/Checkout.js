@@ -45,7 +45,7 @@ export default function CheckoutPage() {
     };
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://goala-foods-backend-1.onrender.com/api/orders/place-order",
         orderData,
         {
           headers: {

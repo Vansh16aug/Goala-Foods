@@ -13,7 +13,7 @@ const RestrauntMenu = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
 
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.auth.user);
 
   // API call for restaurant menu
   useRestrauntMenu(id, setRestrauntInfo);
@@ -142,7 +142,6 @@ const RestrauntMenu = () => {
                         </span>
                       )}
                     </li>
-
                     {/* Add Item Button */}
                     <button
                       className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-all"

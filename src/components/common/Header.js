@@ -59,7 +59,7 @@ export default function Navbar() {
 
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/auth/status",
+          "https://goala-foods-backend-1.onrender.com/api/auth/status",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
