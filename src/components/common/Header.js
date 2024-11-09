@@ -146,7 +146,7 @@ export default function Navbar() {
             <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 text-white">
               <Flame className="w-6 h-6" />
             </div>
-            <span className="hidden sm:inline-block font-bold text-xl text-gray-900 dark:text-white">
+            <span className=" sm:inline-block font-bold text-xl text-gray-900 dark:text-white">
               Goala Foods
             </span>
           </Link>

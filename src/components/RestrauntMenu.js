@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../redux/cart/cartSlice";
-import Shimmer from "./common/Shimmer";
 import useRestrauntMenu from "../customHooks/useRestrauntMenu";
 import { CheckCircle2 } from "lucide-react";
 import toast from "react-hot-toast";
+import RestrauntMenuShimmer from "./common/RestrauntMenuShimmer";
 
-const RestrauntMenu = () => {
+export default function Component() {
   const { id } = useParams();
   const [restrauntInfo, setRestrauntInfo] = useState(null);
   const [showToast, setShowToast] = useState(false);
@@ -51,22 +51,22 @@ const RestrauntMenu = () => {
       </div>
 
       {!restrauntInfo ? (
-        <Shimmer />
+        <RestrauntMenuShimmer />
       ) : (
         <div className="max-w-4xl mx-auto p-4">
           {/* Restaurant Info Section */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden p-6">
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:space-x-6">
               {/* Restaurant Image */}
               <img
                 src={restrauntInfo?.data?.info?.imageUrl}
                 alt="Restaurant"
-                className="h-60 w-full sm:w-64 object-cover rounded-lg"
+                className="h-48 sm:h-60 w-full sm:w-64 object-cover rounded-lg"
               />
 
               {/* Restaurant Details */}
               <div className="mt-4 sm:mt-0">
-                <h2 className="text-xl font-semibold text-gray-700">
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-700">
                   {restrauntInfo?.data?.info?.name}
                 </h2>
                 <p className="text-sm text-gray-500">
@@ -84,7 +84,7 @@ const RestrauntMenu = () => {
                       (cuisine, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-gray-100 text-sm text-gray-700 rounded-full hover:bg-gray-200 transition-colors duration-200"
+                          className="px-2 py-1 bg-gray-100 text-xs sm:text-sm text-gray-700 rounded-full hover:bg-gray-200 transition-colors duration-200"
                         >
                           {cuisine}
                         </span>
@@ -122,10 +122,10 @@ const RestrauntMenu = () => {
                 restrauntInfo?.data?.menu.map((item) => (
                   <div
                     key={item?._id}
-                    className="relative flex items-center justify-between group p-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-300"
+                    className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between group p-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-300"
                   >
                     {/* Menu Item */}
-                    <li className="text-gray-700 group-hover:text-gray-900">
+                    <li className="text-gray-700 group-hover:text-gray-900 mb-2 sm:mb-0">
                       <span className="font-semibold">{item?.name}</span>
                       {item?.price && (
                         <span className="text-gray-500 ml-2">
@@ -144,7 +144,7 @@ const RestrauntMenu = () => {
                     </li>
                     {/* Add Item Button */}
                     <button
-                      className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-all"
+                      className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-all w-full sm:w-auto"
                       onClick={() => {
                         if (user) {
                           handleAddItem(item);
@@ -158,7 +158,7 @@ const RestrauntMenu = () => {
 
                     {/* Image Tooltip on Hover */}
                     {item?.imageUrl && (
-                      <div className="absolute top-0 left-full ml-4 w-40 h-40 hidden group-hover:block">
+                      <div className="absolute top-full left-0 sm:top-0 sm:left-full mt-2 sm:mt-0 sm:ml-4 w-40 h-40 hidden group-hover:block">
                         <img
                           src={item?.imageUrl}
                           alt={item?.name}
@@ -177,6 +177,4 @@ const RestrauntMenu = () => {
       )}
     </>
   );
-};
-
-export default RestrauntMenu;
+}

@@ -16,7 +16,7 @@ export default function Component(
 
   return (
     <div
-      className={`group relative w-72 overflow-hidden rounded-2xl border bg-card transition-all hover:scale-[0.98] ${
+      className={`group relative w-full sm:w-72 overflow-hidden rounded-2xl border bg-card transition-all hover:scale-[0.98] ${
         isOpen ? "cursor-pointer" : "cursor-not-allowed opacity-75"
       }`}
     >
@@ -35,18 +35,20 @@ export default function Component(
 
       <div className="p-4">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="font-semibold text-foreground">{name}</h3>
-          <div className="flex items-center gap-1 rounded bg-[#60B246] px-1.5 py-0.5 text-sm text-white">
+          <h3 className="font-semibold text-foreground text-sm sm:text-base">
+            {name}
+          </h3>
+          <div className="flex items-center gap-1 rounded bg-[#60B246] px-1.5 py-0.5 text-xs sm:text-sm text-white">
             {avgRating}
             <span className="text-xs">★</span>
           </div>
         </div>
 
-        <div className="mt-1 line-clamp-1 text-sm text-muted-foreground">
+        <div className="mt-1 line-clamp-1 text-xs sm:text-sm text-muted-foreground">
           {areaName}
         </div>
 
-        <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="mt-2 flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
           <div
             className={`flex items-center gap-1 rounded-full px-2 py-0.5 ${
               veg ? "bg-green-500 text-white" : "bg-red-500 text-white"

@@ -7,7 +7,7 @@ import useRestraunt from "../customHooks/useRestraunt";
 import useInternetStatus from "../customHooks/useInternetStatus";
 import { Search, X } from "lucide-react";
 
-function Body() {
+export default function Component() {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -58,7 +58,7 @@ function Body() {
           <input
             type="text"
             className="flex-1 bg-transparent border-none outline-none text-gray-800 placeholder-gray-400 focus:ring-0 focus:outline-none"
-            placeholder="Search restaurants by name, cuisine, or location..."
+            placeholder="Search restaurants..."
             value={searchText}
             onChange={handleSearch}
             onFocus={() => setIsFocused(true)}
@@ -81,10 +81,7 @@ function Body() {
         )}
       </div>
       {/* Restaurant List Container */}
-      <div
-        className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center justify-center mx-auto max-w-[1500px]
-        "
-      >
+      <div className="mt-14 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-center justify-center mx-auto max-w-[1500px]">
         {filteredRestaurants?.length > 0 ? (
           filteredRestaurants.map((restaurant) =>
             restaurant?.info?.isOpen ? (
@@ -111,7 +108,7 @@ function Body() {
             )
           )
         ) : (
-          <p className="text-center text-gray-500 h-screen">
+          <p className="text-center text-gray-500 col-span-full h-32 flex items-center justify-center">
             No restaurants found
           </p>
         )}
@@ -119,5 +116,3 @@ function Body() {
     </div>
   );
 }
-
-export default Body;
