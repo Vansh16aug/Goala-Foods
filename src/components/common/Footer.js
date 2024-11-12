@@ -15,7 +15,7 @@ const Footer = () => {
       </p>
       <p className="text-sm flex items-center">
         <Copyright className="mr-1" aria-label="copyright" />
-        {year} FoodVilla. All rights reserved.
+        {year}  All rights reserved.
       </p>
       <div className="flex space-x-4 mt-2">
         <a
